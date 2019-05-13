@@ -1,0 +1,20 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="logitechG920">images/logitech_g920.jpg</file>
+        <file alias="b_angle">images/angle.png</file>
+        <file alias="b_back">images/back.png</file>
+        <file alias="b_button">images/button.png</file>
+        <file alias="b_d_down">images/d_down.png</file>
+        <file alias="b_d_left">images/d_left.png</file>
+        <file alias="b_d_right">images/d_right.png</file>
+        <file alias="b_d_up">images/d_up.png</file>
+        <file alias="b_guide">images/guide.png</file>
+        <file alias="b_lb">images/lb.png</file>
+        <file alias="b_left_pedal">images/left_pedal.png</file>
+        <file alias="b_lsb">images/lsb.png</file>
+        <file alias="b_rb">images/rb.png</file>
+        <file alias="b_right_pedal">images/right_pedal.png</file>
+        <file alias="b_rsb">images/rsb.png</file>
+        <file alias="b_start">images/start.png</file>
+    </qresource>
+</RCC>

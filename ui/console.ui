@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Console</class>
+ <widget class="QMainWindow" name="Console">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>968</width>
+    <height>496</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Console</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget#centralWidget{
+	background:url(&quot;:/images/logitechG920&quot;) no-repeat;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QLabel" name="t_clutch">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>140</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#00a8e2;</string>
+    </property>
+    <property name="text">
+     <string>99%</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="t_brake">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>140</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#00a8e2;</string>
+    </property>
+    <property name="text">
+     <string>99%</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="t_gas">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>140</y>
+      <width>80</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#00a8e2;</string>
+    </property>
+    <property name="text">
+     <string>99%</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_angle">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>20</y>
+      <width>151</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#00a8e2;
+background:url(:/images/b_angle) no-repeat;</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="t_angle">
+    <property name="geometry">
+     <rect>
+      <x>370</x>
+      <y>90</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#00a8e2;</string>
+    </property>
+    <property name="text">
+     <string>450.0°</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_y">
+    <property name="geometry">
+     <rect>
+      <x>798</x>
+      <y>179</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_button) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_b">
+    <property name="geometry">
+     <rect>
+      <x>818</x>
+      <y>198</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_button) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_a">
+    <property name="geometry">
+     <rect>
+      <x>798</x>
+      <y>217</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_button) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_x">
+    <property name="geometry">
+     <rect>
+      <x>779</x>
+      <y>198</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_button) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_d_right">
+    <property name="geometry">
+     <rect>
+      <x>633</x>
+      <y>201</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_d_right) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_d_left">
+    <property name="geometry">
+     <rect>
+      <x>606</x>
+      <y>200</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_d_left) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_d_up">
+    <property name="geometry">
+     <rect>
+      <x>621</x>
+      <y>186</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_d_up) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_d_down">
+    <property name="geometry">
+     <rect>
+      <x>621</x>
+      <y>212</y>
+      <width>20</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_d_down) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_back">
+    <property name="geometry">
+     <rect>
+      <x>629</x>
+      <y>248</y>
+      <width>20</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_back) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_start">
+    <property name="geometry">
+     <rect>
+      <x>790</x>
+      <y>248</y>
+      <width>20</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_start) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_rsb">
+    <property name="geometry">
+     <rect>
+      <x>814</x>
+      <y>288</y>
+      <width>30</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_rsb) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_lsb">
+    <property name="geometry">
+     <rect>
+      <x>594</x>
+      <y>288</y>
+      <width>30</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_lsb) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_guide">
+    <property name="geometry">
+     <rect>
+      <x>706</x>
+      <y>339</y>
+      <width>30</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_guide) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_rb">
+    <property name="geometry">
+     <rect>
+      <x>830</x>
+      <y>139</y>
+      <width>91</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_rb) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_lb">
+    <property name="geometry">
+     <rect>
+      <x>542</x>
+      <y>138</y>
+      <width>91</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_lb) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_clutch">
+    <property name="geometry">
+     <rect>
+      <x>44</x>
+      <y>176</y>
+      <width>111</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_left_pedal) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_brake">
+    <property name="geometry">
+     <rect>
+      <x>168</x>
+      <y>176</y>
+      <width>111</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_left_pedal) no-repeat;</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="b_gas">
+    <property name="geometry">
+     <rect>
+      <x>319</x>
+      <y>175</y>
+      <width>111</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:url(:/images/b_right_pedal) no-repeat;</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
