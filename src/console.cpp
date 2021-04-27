@@ -1,10 +1,10 @@
-#include "gamepad_reader/console.h"
+#include "includes/console.h"
 #include "ui_console.h"
 
-Console::Console(int milliseconds_frequency, QWidget *parent) :
+Console::Console(QWidget *parent) :
   QMainWindow(parent),
   ui(new Ui::Console),
-  timer_(nullptr),
+  timer_(NULL),
   gamepads_(nullptr)
 {
   ui->setupUi(this);
@@ -13,7 +13,7 @@ Console::Console(int milliseconds_frequency, QWidget *parent) :
 
   timer_ = new QTimer(this);
   connect(timer_, SIGNAL(timeout()), this, SLOT(reload_data()));
-  timer_->start(milliseconds_frequency);
+  timer_->start(20);
 }
 
 Console::~Console(){
@@ -21,11 +21,11 @@ Console::~Console(){
   delete timer_;
 }
 
-void Console::set_gamepads(const std::vector<gamepad::GamepadData> *const gamepads){
+void Console::set_gamepads(const std::vector<GamepadData> *const gamepads){
   gamepads_ = gamepads;
 }
 
-void Console::keyPressEvent(QKeyEvent */*event*/){
+void Console::keyPressEvent(QKeyEvent *event){
   //    emit readAll();
 }
 
@@ -140,7 +140,7 @@ void Console::reload_data(){
       else
         ui->b_clutch->setStyleSheet("background:none;");
 
-      if(gamepads_->at(i).brake > 0.0)
+      if(gamepads_->at(i).brake)
         ui->b_brake->setStyleSheet("background:url(:/images/b_left_pedal) no-repeat;");
       else
         ui->b_brake->setStyleSheet("background:none;");

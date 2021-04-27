@@ -1,4 +1,4 @@
-#include "includes/GamepadReader.h"
+#include "GamepadReader.h"
 
 GamepadReader::GamepadReader() :
   joysticks_(0, NULL),
@@ -6,7 +6,7 @@ GamepadReader::GamepadReader() :
   gamepads_(0)
 {
   if(SDL_Init(SDL_INIT_GAMECONTROLLER) != 0){
-    qWarning("Unable to initialize SDL: %s\n", SDL_GetError());
+    std::cout << "Unable to initialize SDL: " << SDL_GetError() << std::endl;
     return;
   }
 
@@ -16,21 +16,22 @@ GamepadReader::GamepadReader() :
   if(SDL_NumJoysticks() > 0){
     for(int i = 0; i < SDL_NumJoysticks(); i++)
       if(SDL_IsGameController(i)){
-        qWarning("Index \'%i\' is a compatible controller, named \'%s\'\n", i,
-                 SDL_JoystickNameForIndex(i));
+        std::cout << "Index \'" << i << "\' is a compatible controller, named \'"
+                  << SDL_JoystickNameForIndex(i) << "\'" << std::endl;
         SDL_Joystick *joy = SDL_JoystickOpen(i);
 
         if(joy){
           joysticks_.push_back(joy);
           gamepads_.push_back(control);
-          qWarning("Found a valid controller, named: %s\n", SDL_JoystickName(joy));
+          std::cout << "Found a valid controller, named: "
+                    << SDL_JoystickName(controller) << std::endl;
         }else
-          qWarning("Could not open gamecontroller %i: %s", i, SDL_GetError());
+          std::cout << "Could not open gamecontroller " << i << ": "
+                    << SDL_GetError() << std::endl;
       }
   }else{
-    qWarning("There are no controllers detected");
+    std::cout << "There are no controllers detected." << std::endl;
   }
-
 }
 
 GamepadReader::~GamepadReader(){
