@@ -1,25 +1,15 @@
-
-#ifdef ROSSY_RUNNER
-#include <ros/ros.h>
-#endif
-
-#include "gamepad_reader/console.h"
+#include "includes/console.h"
 #include <QApplication>
 #include <QObject>
 
-#include "gamepad_reader/GamepadReader.h"
+#include "includes/GamepadReader.h"
 
 int main(int argc, char *argv[])
 {
-#ifdef ROSSY_RUNNER
-  // intiialize ros node
-  ros::init(argc, argv, "gamepad_reader");
-#endif
-
-  gamepad::GamepadReader gamepad;
+  GamepadReader gamepad;
 
   QApplication a(argc, argv);
-  Console GUI(20/*milliseconds delayment between frames*/);
+  Console GUI;
   GUI.show();
 
   GUI.set_gamepads(gamepad.get_gamepad_data());

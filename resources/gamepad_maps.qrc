@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/maps">
+        <file alias="control_map">../control_maps/logitech_g920_map.txt</file>
+    </qresource>
+</RCC>

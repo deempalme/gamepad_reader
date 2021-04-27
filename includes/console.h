@@ -1,7 +1,7 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-#include "gamepad_reader/definitions.h"
+#include "includes/definitions.h"
 
 #include <QMainWindow>
 #include <QKeyEvent>
@@ -18,19 +18,19 @@ class Console : public QMainWindow
   Q_OBJECT
 
 public:
-  explicit Console(int milliseconds_frequency = 20, QWidget *parent = nullptr);
-  ~Console() override;
+  explicit Console(QWidget *parent = 0);
+  ~Console();
 
-  void set_gamepads(const std::vector<gamepad::GamepadData> *const gamepads);
+  void set_gamepads(const std::vector<GamepadData> *const gamepads);
 
 private:
   Ui::Console *ui;
 
-  void keyPressEvent(QKeyEvent */*event*/) Q_DECL_OVERRIDE;
+  void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
   void set_initial_console();
 
   QTimer *timer_;
-  const std::vector<gamepad::GamepadData> *gamepads_;
+  const std::vector<GamepadData> *gamepads_;
 
 signals:
   void read_all(const int);

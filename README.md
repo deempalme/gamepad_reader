@@ -1,8 +1,7 @@
-![Gamepad Reader](resources/images/gamepad_logo.png)
+
+![Gamepad Reader](images/gamepad_logo.jpg)
 
 Gamepad reader for joysticks in windows and linux (if joystick driver is supported). This is a gamepad reader, it is configured to use Logitech Racing wheel G920 but you can modify it and use different joysticks.
-
-___
 
 ## 1.1 Steps to setup the code in Windows:
 
@@ -59,82 +58,27 @@ ___
      
      
   8. Compile the program.
+  
+  9. Copy the folder called `control_maps` of this **repository** into the folder where your **executable program** is _located_.
+     
+  10. You can now run your **executable program**.
+
 
   **NOTE:** If you copied the wrong .dll file in the step **4** or **7** the program may experience a __unexpected exit__, try copying the opposite .dll file into the folder where your executable is located.
-
   
-## 1.2 Installing the Gamepad drivers in ubuntu
   
-### 1.2.1 Installing xpad driver
+## 1.2 Steps to setup the code in Ubuntu:
 
-  You need to check if the gamepad driver is already installed and running, write the following commands in an ubuntu terminal:
-  
-  ```shell
-  sudo apt-get install joystick
-  sudo apt-get install jstest-gtk
-  ```
-  
-  Open jstest-gtk and see if the gamepad was detected, if not then, you will have to do all the steps until **1.3**:
-  
-1. Install xpad drivers:
-  ```shell
-  sudo apt-get install xserver-xorg-input-elographics
-  sudo modprobe xpad
-  ```
-  
-2. Adding **xpad** module to run from boot
-   1. Open `/etc/modules´
-     ```shell
-     sudo gedit /etc/modules
-     ```
-   2. Add a new line with the text `xpad` and save file
-  
-### 1.2.2 Adding a mode switch
+  **NOTE:** Drivers for Logitech Racing wheel G920 are not yet available or don't work at ubuntu. If you want to know if the Gamepad has been detected you need to run:
+ 
+    ```
+    sudo apt-get install joystick
+    sudo apt-get install jstest-gtk
+    ```
 
-  Once you have the newest kernel installed, you can move on to the UDEV system and the usb_modeswitch updates.
-    
-  It's probably a good idea to start with the `usb_modeswitch`. You'll need to create a file in **/etc/usb\_modeswitch.d/** called `046d:c261`.
+    Open **jstest-gtk** and you should be able to see if the Gamepad is detected, if the **jstest-gtk** screen is blank then, no Gamepad was detected.
 
-  ```shell
-  sudo gedit /etc/usb_modeswitch.d/046d:c261
-  ```
-
-  Inside, dump the following:
-
-  ```shell
-  # Logitech G920 Racing Wheel
-  DefaultVendor=046d
-  DefaultProduct=c261
-  MessageEndpoint=01
-  ResponseEndpoint=01
-  TargetClass=0x03
-  MessageContent="0f00010142"
-  ```
-
-  The next step is to insert the following rule into udev. I stuffed mine into the rules file: **/lib/udev/rules.d/40-usb\_modeswitch.rules**, however you might want to try using the **/etc/udev/rules.d/** folder instead. If the latter doesn't work, the former certainly does... you just run the slight risk of future upgrades wreaking havoc when they get to this file.
-
-  ```shell
-  sudo gedit /lib/udev/rules.d/40-usb_modeswitch.rules
-  ```
-
-  and inside add the following before the last line `LABEL...`:
-
-  ```shell
-  # Logitech G920 Racing Wheel
-  ATTR{idVendor}=="046d", ATTR{idProduct}=="c261", RUN+="usb_modeswitch '%b/%k'"
-  ```
-
-  or
-
-  ```shell
-  sudo gedit /etc/udev/rules.d/046d:c261
-  ```
-
-  and copy the same previous content. Restart your computer and now using `lsusb` in a terminal, the ID of the gamepad should have changed from `046d:c261` to `046d:c262`
-  
-  Restart the computer and your joystick should appear now in `jstest-gtk`
-  
-## 1.3 Steps to setup the code in Ubuntu:
+___
 
   1. Install the following packages before installing SLD:
      ```
@@ -143,27 +87,26 @@ ___
                    libvorbis-dev libaudiofile-dev libpng12-dev libfreetype6-dev libusb-dev \
                    libdbus-1-dev zlib1g-dev libdirectfb-dev
      ```
-     
-     **NOTE:** delete the name of the libraries that give you any problems when executing the previous command.
-     
 
-  2. Download the source code for SDL library (it should be called SDL2-2.\*.tar.gz or SDL2-2.\*.zip):
+  1. Download the source code for SDL library (it should be called SDL2-2.\*.tar.gz or SDL2-2.\*.zip):
      [http://www.libsdl.org/download-2.0.php](http://www.libsdl.org/download-2.0.php)
      
-  3. Uncompress the file, open the folder and run the following commands with ubuntu terminal set in that folder:
+  2. Uncompress the file, open the folder and run the following commands with ubuntu terminal set in that folder:
      ```
      ./configure
      make
      sudo make install
      make clean
      ```
-  4. You can now delete the uncompressed folder to free memory.
+  3. You can now delete the uncompressed folder to free memory.
   
-  5. Don't forget to run:
+  4. Don't forget to run:
      ```
      sudo ldconfig
      ```
      to update the necessary links and cache to the libraries.
+     
+  5. Do the steps _8_ to _10_ at the section **1.1**
      
 ## 2 How to use GamepadReader _class_
   
@@ -193,27 +136,17 @@ ___
 
 ___
      
-   ##### _Example of use_:
-   ```cpp
-   // Creates the object
-   GamepadReader gamepad_;
-   
-   // Updates the joysticks data
-   gamepad_.read_gamepad();
-   
-   // Get the clutch value from the first found Joystick
-   double clutch = gamepad_.get_gamepad_data()->at(0).clutch;
-   
-   /* –––––––––––––––––––––––––––
-     To update only one Gamepad
-   –––––––––––––––––––––––––––––– */
-   
-   // Updates the Joystick element with index = 0
-   gamepad_.read_gamepad(0);
-   
-   // Get the clutch value from the Joystick with index = 0
-   double clutch = gamepad_.get_gamepad_data(0)->clutch;
-   ```
+     ##### _Example of use_:
+     ```cpp
+     // Creates the object
+     GamepadReader gamepad_;
+     
+     // Updates the joysticks data
+     gamepad_.read_gamepad();
+     
+     // Get the clutch value from the first found Joystick
+     double clutch = gamepad_.get_gamepad_data()->at(0).clutch;
+     ```
   
 #### 2.1 GamepadData structure:
 
